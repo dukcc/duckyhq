@@ -1,2 +1,3 @@
-# duckyhq
-Official website for DuckyHQ (WIP)
+# DuckyHQ Website
+###### Work In Progress
+Official website for DuckyHQ.
