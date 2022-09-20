@@ -97,7 +97,7 @@ nav {
     display: flex;
     height: 20vh;
     background-size: cover;
-    background-position: left;
+    background-position: center;
     justify-content: left;
     align-items: left;
     text-align: left;
@@ -166,6 +166,15 @@ nav video {
     z-index: -1;
 }
 
+nav .btns {
+    align-items: center;
+    justify-content: center;
+}
+
+nav #toggleLightDark {
+    font-size: 21px;
+}
+
 /* ------------------- CONTENT -------------------- */
 
 #content {
@@ -207,7 +216,8 @@ nav video {
 }
 
 .content div:hover {
-    transform: scale(1.02);
+    transform: scale(1.5);
+    transform: rotateZ(1deg);
     cursor: pointer;
     opacity: 1;
 }
