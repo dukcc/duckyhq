@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ![DuckyHQ Logo](img/bluelogo.png)
 # DuckyHQ Website
 
@@ -13,8 +13,3 @@ The goal is for the homepage to be minimalist, and be 1 page with a grid of link
 Work in progress - duckyhq.com is not updated to this new website.<br>
 Also, the old (Current) version of duckyhq.com was made using a web builder.
 </sub>
-=======
-# DuckyHQ Website
-###### Work In Progress
-Official website for DuckyHQ.
->>>>>>> 3b47069a6bf9ede97dc16682ffaf894544094eb1
