@@ -19,37 +19,39 @@
     <title>DuckyHQ: Home</title>
 </head>
 <body>
-    <nav>
-        <img class="logo" src="/img/favicon.svg" alt="DuckyHQ Logo">
-        <button class="btn" onclick="toggleDark()"><i class="fa-solid fa-circle-half-stroke" id="toggleLightDark"></i></button>
+    <nav id="navbar" class="hidden">
+        <img class="logo" src="/img/whitelogo.png" alt="DuckyHQ Logo">
+        <button class="showMenu" onclick="showMenu()"><i class="fa-solid fa-bars"></i></button>
     </nav>
-    <section class="landing">
+    <section id="landing" class="hidden">
         <div class="landingText">
             <h1>DuckyHQ</h1>
-            <p>Hello, I am DUKC.<br>I am a content creator, designer, programmer.</p>
+            <p>Hello, I'm dukc.<br>I am a content creator, designer, programmer.</p>
         </div>
     </section>
-    <section class="content">
-        <a href="#"><div><h1>dezzz</h1><p>Deezzzzzzzzzzzzzzzzzzzzzz</p></div></a>
-        <a href="#"><div><h1>Content 5</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur cu</p></div></a>
-        <a href="#"><div><h1>Content 5</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur cu</p></div></a>
-        <a href="#"><div><h1>Content 5</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur cu</p></div></a>
-        <a href="#"><div><h1>Content 5</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur cu</p></div></a>
-        <a href="#"><div><h1>Content 5</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur cu</p></div></a>
-
+    <section id="content">
+        <div class="container hidden">
+            <a href="#"><div><h1>Content 1</h1><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, laborum.</p></div></a>
+            <a href="#"><div><h1>Content 2</h1><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, laborum.</p></div></a>
+            <a href="#"><div><h1>Content 3</h1><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, laborum.</p></div></a>
+            <a href="#"><div><h1>Content 4</h1><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, laborum.</p></div></a>
+        </div>
     </section>
     <section id="about">
-        <div class="aboutText">
-            <h1>About Me</h1>
-            <p>I am a Canadian content creator, that makes tutorials, designs, gaming videos, and more.<br>
+        <div class="aboutText hidden">
+            <h1 class="hidden">About Me</h1>
+            <p class="hidden">I am a Canadian content creator, that makes tutorials, designs, gaming videos, and more.<br>
             I also am a UI designer, logo designer, and a programmer.</p>
-            <div class="icons">
-                <a href="https://www.youtube.com/channel/UCHaYKedgxbZ2GenK3_3rNyw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://discord.gg/GMvM7cBAhB" target="_blank"><i class="fa-brands fa-discord"></i></a> 
+            <div class="icons hidden">
+                <a href="https://www.youtube.com/channel/UCHaYKedgxbZ2GenK3_3rNyw" target="_blank" class="hidden"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://discord.gg/GMvM7cBAhB" target="_blank" class="hidden"><i class="fa-brands fa-discord"></i></a> 
             </div>
         </div>
     </section>
-    <a href="links.html" class="links">Links <i class="fa-solid fa-arrow-right"></i></a>
-    <a href="https://www.youtube.com/clip/UgkxvidF8BO0YYPJwrYgmpV4opUkySAg39EK" target="_blank">deez</a>
+    <footer>
+        <h1 class="hidden">DuckyHQ</h1>
+        <div class="break"></div>
+        <p class="hidden">&copy; DuckyHQ 2022</p>
+    </footer>
 </body>
 </html>

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --blue: #0089f8;
-    --lightblue: #2cb9fd;
+    --shadow: 0 8px 8px -4px rgba(27, 27, 27, 0.219);
+    --bg-gradient: linear-gradient(45deg, rgb(34, 12, 85), rgb(3, 30, 51));
+    --primary-gradient: linear-gradient(45deg, rgb(111, 57, 238), rgb(15, 169, 207));
+    --text-gradient: -webkit-linear-gradient(45deg, rgb(111, 57, 238), rgb(15, 169, 207));
 }
 
 /* ----------- WEB STUFF ----------- */
@@ -12,7 +14,7 @@ html {
 }
 
 body {
-    background-color: black;
+    background-image: var(--bg-gradient);
     color: white;
     overflow-x: hidden;
     padding: 0;
@@ -21,20 +23,22 @@ body {
     font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-body * {
+.hidden {
     opacity: 0;
-    transform: translateY(-30px);
-    transition: transform 1s, opacity 1s;
+    filter: blur(2px);
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(1,.5,0,.5);
 }
 
-.appeared {
-    transform: translateY(0px);
+.show {
     opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px);
 }
 
 button {
     border: none;
-    background-color: rgba(255, 255, 255, 0.705);
+    background-color: rgb(255, 255, 255);
     padding: 11px;
     border-radius: 100px;
     color: black;
@@ -43,114 +47,71 @@ button {
 
 
 button:hover {
-    background-color: rgba(0, 102, 255);
-    color: white;
-    transform: scale(1.04);
+    background-color: rgba(255, 255, 255, 0.671);
+    color: rgb(0, 0, 0);
+    transform: scale(1.06);
     cursor: pointer;
 }
 
 button:active {
-    background-color: rgb(146, 146, 146);
+    background-color: rgb(235, 235, 235);
     cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+button.showMenu {
+    background-color: transparent;
+    color: white;
+}
+
+button.showMenu:hover {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.658);
 }
 
 ::-webkit-scrollbar {
     width: 6px;
     margin: 3px;
     padding: 3px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(0, 0, 0);
 }
   
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0); 
+    background: black; 
 }
    
 ::-webkit-scrollbar-thumb {
     background: #e7e7e7; 
     width: 6px;
-    border-radius: 100px;
+    transition: all 0.5s;
 }
   
 ::-webkit-scrollbar-thumb:hover {
     background: #a7a7a7; 
     width: 6px;
-    border-radius: 100px;
 }
 
 ::selection {
-    background-color: var(--lightblue);
-    color: white;
-}
-
-/* ----------- HOME PAGE ----------- */
-
-/* ------------------- LIGHT MODE -------------------- */
-
-.light-mode {
     background-color: white;
     color: black;
 }
 
-.light-mode button {
-    background-color: rgba(24, 24, 24, 0.8);
-    color: white;
-}
-
-.light-mode button:hover {
-    background-color: rgba(0, 102, 255);
-    color: white;
-    transform: scale(1.04);
-    cursor: pointer;
-}
-
-.light-mode button:active {
-    background-color: rgb(146, 146, 146);
-    cursor: pointer;
-}
-
-.light-mode nav {
-    background-color: rgb(218, 218, 218);
-    box-shadow: 0 8px 8px -4px rgb(196, 196, 196);
-}
-
-.light-mode nav a {
-    color: black;
-}
-
-.light-mode .landing {
-    box-shadow: 0 8px 8px -4px rgb(145, 145, 145);
-}
-
-.light-mode .content div {
-    box-shadow: 0 8px 8px -4px rgb(128, 128, 128);
-}
-
-.light-mode #about {
-    box-shadow: 0 8px 8px -4px rgb(128, 128, 128);
-}
-
-.light-mode footer {
-    background-color: rgb(216, 216, 216);
-    box-shadow: 0 8px 8px -4px rgb(196, 196, 196);
-    color: black;
-}
-
-.light-mode a {
-    color: black;
+.break {
+    flex-basis: 100%;
+    height: 0;
 }
 
 /* ----------- NAV ----------- */
 
 nav {
-    background-color: rgb(20, 20, 20);
+    background-color: transparent;
     font-family: 'Be Vietnam Pro', sans-serif;
     color: white;
     display: flex;
     height: 10vh;
-    margin: 40px;
     padding: 10px;
     padding-left: 40px;
-    border-radius: 10px;
     justify-content: space-between;
     align-items: center;
 }
@@ -161,22 +122,29 @@ nav img {
 
 li, a {
     padding: 10px;
-    display: inline-block;
+    display: inline;
     text-decoration: none;
     list-style: none;
     color: white;
     font-size: 20px;
     transition: all 0.2s;
+    padding-bottom: 25px;
 }
 
 nav a {
-    background-color: rgba(255, 255, 255, 0.151);
-    border-radius: 100px;
-    padding: 12px;
+    font-size: 17px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+nav a.selected {
+    color: var(--lightblue);
 }
 
 nav a:hover {
-    background-color: #0088f88c;
+    color: var(--blue);
 }
 
 nav button {
@@ -185,13 +153,24 @@ nav button {
     font-size: 21px;
 }
 
-nav .buttons {
-    display: inline-flex;
+nav button.showMenu {
+    padding: 12px 13px 12px 13px;
 }
 
-nav .hamburger {
-    display: none;
-    align-items: center;
+@media screen and (max-width: 1000px) {
+    nav a {
+        font-size: 12px;
+    }
+
+    nav img {
+        width: 40px;
+    }
+
+    nav button {
+        height: 35px;
+        margin: 42px;
+        font-size: 13px;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -202,148 +181,143 @@ nav .hamburger {
     nav li {
         display: none;
     }
-
-    nav {
-        margin: 25px;
-    }
 }
 
 /* ------------------- LANDING PAGE -------------------- */
 
-.landing {
-    background-image: url('../img/bg.png');
-    border-radius: 10px;
+#landing {
     color: white;
     display: flex;
-    height: 80vh;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    height: 100vh;
     font-family: 'Be Vietnam Pro', sans-serif;
-    background-size: cover;
-    background-position: center;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 40px;
-    flex-wrap: wrap;
-    box-shadow: 0 8px 8px -4px rgb(31, 31, 31);
 }
 
-.landing h1 {
-    font-size: 5vw;
+#landing h1 {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 8rem;
+    margin: 0;
+    padding: 0;
 }
 
-.landing p {
-    font-size: 1.5vw;
+.landingText {
+    padding-bottom: 20vh;
+    margin: 0;
+}
+
+#landing p {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (max-width: 1000px) {
-    .landing h1 {
+    #landing h1 {
         font-size: 55px;
     }
     
-    .landing p {
+    #landing p {
         font-size: 18px;
     }
 }
 
-@media screen and (max-width: 800px) {
-    .landing {
-        margin: 25px;
-    }
-}
-
-/* ------------------- CONTENT -------------------- */
+/* ------------------- CONTENT - PROJECTS -------------------- */
 
 #content {
     display: flex;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    justify-content: left;
-    align-items: left;
-    text-align: left;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
-    padding-left: 65px;
-    flex-wrap: wrap;
+    padding-left: 33px;
+    padding-right: 43px;
+    padding-bottom: 45px;
+    background-color: rgba(0, 0, 0, 0.164);
 }
 
-/* ------------------- CONTENT - PROJECTS -------------------- */
-
-.content {
+.container {
     display: grid;
     font-family: 'Be Vietnam Pro', sans-serif;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
     grid-auto-rows: minmax(100px, auto);
-    height: 80vh;
-    padding: 40px;
-    margin-left: -10px;
+    height: 40vh;
     flex-wrap: wrap;
 }
 
-.content div {
+.container div {
     color: white;
-    background-image: linear-gradient(45deg, rgb(111, 57, 238), rgba(15, 169, 207, 0.801));
+    background-color: rgba(0, 0, 0, 0.603);
     border-radius: 10px;
-    padding: 7px;
-    padding-right: 18px;
+    padding: 10px;
+    padding-left: 30px;
     transition: all 0.3s ease;
-    padding-left: 25px;
-    opacity: 0.85;
     height: 100%;
     width: 100%;
-    box-shadow: 0 8px 8px -4px rgb(46, 46, 46);
+    box-shadow: var(--shadow);
     flex-wrap: wrap;
 }
 
-.content div:hover {
-    transform: scale(1.025);
+.container div:hover {
+    transform: scale(1.025) rotate(2deg) translateY(-15px);
     cursor: pointer;
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.795);
 }
 
-.content div p {
+.container div p {
     font-size: 22px;
 }
 
-.content div h1 {
+.container div h1 {
     font-size: 27px;
 }
 
 @media screen and (max-width: 1400px) {
-    .content div p {
+    .container div p {
         font-size: 20px;
     }
     
-    .content div h1 {
+    .container div h1 {
         font-size: 25px;
     }
 }
 
 @media screen and (max-width: 1100px) {
-    .content div p {
+    .container div p {
         font-size: 18px;
     }
     
-    .content div h1 {
+    .container div h1 {
         font-size: 22px;
     }
 }
 
 @media screen and (max-width: 950px) {
-    .content div p {
+    .container div p {
         font-size: 16px;
     }
     
-    .content div h1 {
+    .container div h1 {
         font-size: 20px;
     }
 }
 
-@media screen and (max-width: 800px) {
-    .content {
+@media screen and (max-width: 900px) {
+    #content {
+        padding: 0px;
+        padding-left: 0px;
+        padding-right: 5px;
+        padding-bottom: 0px;
+    }
+
+    .container {
         padding: 25px;
-        height: 100vh;
+        height: 80vh;
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -351,47 +325,47 @@ nav .hamburger {
         overflow-y: visible;
     }
 
-    .content h1 {
+    .container h1 {
         font-size: 25px;
     }
 
-    .content p {
+    .container p {
         font-size: 13px;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .content div p {
+    .container div p {
         font-size: 14px;
     }
     
-    .content div h1 {
+    .container div h1 {
         font-size: 18px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .content div p {
+    .container div p {
         font-size: 13px;
     }
     
-    .content div h1 {
+    .container div h1 {
         font-size: 17px;
     }
 }
 
 @media screen and (max-width: 470px) {
-    .content {
+    .container {
         height: 120vh;
         margin-bottom: 10px;
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .content div p {
+    .container div p {
         font-size: 12px;
     }
     
-    .content div h1 {
+    .container div h1 {
         font-size: 16px;
     }
     
@@ -403,30 +377,29 @@ nav .hamburger {
 /* ------------------- ABOUT -------------------- */
 
 #about {
-    background-image: linear-gradient(to right, rgb(14, 60, 185), rgba(3, 154, 255, 0.26)), url('../img/about.jpg');
     padding: 70px;
-    padding-top: 200px;
-    border-radius: 10px;
+    padding-top: 25vh;
     color: white;
     display: flex;
     height: 70vh;
     font-family: 'Be Vietnam Pro', sans-serif;
-    background-size: cover;
-    background-position: center;
     justify-content: flex-start;
     align-items: flex-start;
     text-align: flex-start;
-    margin: 40px;
     flex-wrap: wrap;
-    box-shadow: 0 8px 8px -4px rgb(31, 31, 31);
+    background-image: linear-gradient(to TOP, #000000, #00000029);
 }
 
 #about h1 {
-    font-size: 5vw;
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 8rem;
+    margin: 0;
 }
 
 #about p {
-    font-size: 1.5vw;
+    font-size: 1.5rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -439,23 +412,21 @@ nav .hamburger {
     }
 }
 
-@media screen and (max-width: 800px) {
-    #about {
-        margin: 25px;
-    }
-}
-
-.icons i, a {
+.icons i, .icons a {
     font-size: 50px;
     color: white;
-    margin-right: 30px;
-    margin-top: 30px;
     transition: color 0.3s;
+    padding: 0;
+    display: inline-block;
+    margin-right: 10px;
 }
 
+.fa-youtube:hover {
+    color: #fd0000;
+}
 
-.icons i:hover, a:hover, #linksButton:hover {
-    color: var(--blue);
+.fa-discord:hover {
+    color: #5170ef;
 }
 
 @media screen and (max-width: 1000px) {
@@ -467,7 +438,6 @@ nav .hamburger {
     }
 
     #about {
-        background-image: linear-gradient(to bottom, rgba(14, 60, 185, 0.986), rgba(3, 154, 255, 0.26)), url('../img/about.jpg');
         justify-content: center;
         align-items: center;
         text-align: center;
@@ -475,21 +445,63 @@ nav .hamburger {
     }
 }
 
-.links {
-    margin: 40px;
-    padding: 50px;
-    background-color: var(--blue);
-    font-size: 100px;
-    border-radius: 10px;
-    font-weight: 900;
-    color: var(--lightblue);
-    box-shadow: 0 8px 8px -4px rgb(31, 31, 31);
-    transition: all 0.2s;
-    
+/* ------------------- FOOTER -------------------- */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    background-color: black;
+    color: white;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    margin: 0;
 }
 
-.links:hover {
-    cursor: pointer;
-    background-color: var(--lightblue);
-    color: var(--blue);
+footer h1 {
+    font-size: 8rem;
+    padding-left: 70px;
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+footer p {
+    font-size: 1rem;
+    padding-left: 70px;
+    margin: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    footer h1 {
+        font-size: 4rem;
+    }
+    
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    footer h1 {
+        font-size: 3rem;
+    }
+    
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    footer h1 {
+        font-size: 1.5rem;
+    }
+    
+    footer p {
+        font-size: 0.8rem;
+    }
 }
