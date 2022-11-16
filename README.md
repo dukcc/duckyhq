@@ -1,6 +1,7 @@
 
 ![DuckyHQ Logo](img/bluelogo.png)
 # DuckyHQ Website
+### This project has been deprecated. New repo: `nextDuckyhq`
 
 Official website for DuckyHQ.
 
